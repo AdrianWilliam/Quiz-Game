@@ -171,7 +171,7 @@ function addFirstQuestions(idFromQuiz){
 }
 
 function switchScreen(idQuizSelected, answer){
-    answer.style.border = 'none'
+    answer.style.background = 'white'
     numberScreen++
     if(numberScreen >= 5){
         closeTheQuiz()
@@ -201,16 +201,16 @@ function switchScreen(idQuizSelected, answer){
 function verifyResponse(verify, answer){
     console.log(verify, quizWereWolf[numberScreen])
     if(verify == quizWereWolf[numberScreen].qR){
-        answer.style.border = 'solid 8px #1aff00'
-        answer.style.transition = 'border 0.2s'
+        answer.style.background = '#1aff00'
+        answer.style.transition = 'background 0.2s'
         pointsScore = pointsScore + 10
     }else if(verify == quizSamurai[numberScreen].qR){
-        answer.style.border = 'solid 8px #1aff00'
-        answer.style.transition = 'border 0.2s'
+        answer.style.background = '#1aff00'
+        answer.style.transition = 'background 0.2s'
         pointsScore = pointsScore + 10
     }else{
-        answer.style.border = 'solid 8px red'
-        answer.style.transition = 'border 0.2s'
+        answer.style.background = 'red'
+        answer.style.transition = 'background 0.2s'
     }
 }
 answer1.addEventListener('click', () => {
