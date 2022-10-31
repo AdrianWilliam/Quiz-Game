@@ -11,7 +11,6 @@ const answer5 = document.getElementById('response5');
 let idQuiz = '';
 let numberScreen = 0;
 let progress = document.querySelector('div#pts progress');
-let pointsScore = 0;
 let currentPoints = document.querySelector('div#points p')
 let i = 0;
 let tittleQuiz = document.getElementById('question');
@@ -122,13 +121,13 @@ const quizSamurai = [
     },
 ]
 for(let j = 0; j<quiz.length; j++){
-    inputs[j].setAttribute('id', j+1)
+    inputs[j].setAttribute('id', j+1);
 }
 for (const button of inputs){
     button.addEventListener('click', () => {
         idQuiz = button.getAttribute('id');
         openQuiz(); 
-        addFirstQuestions(idQuiz)
+        addFirstQuestions(idQuiz);
     });
 };
 
@@ -175,9 +174,10 @@ function switchScreen(idQuizSelected, answer){
     numberScreen++
     if(numberScreen >= 5){
         closeTheQuiz()
-        numberScreen = 0      
-        currentPoints.innerText = `Ponto atual: ${pointsScore}`  
-    }
+        numberScreen = 0 
+        //show points in screen
+        currentPoints.innerText = `Pontos Acumulados: ${score}`
+    };
     if(idQuizSelected == 1){
         tittleQuiz.innerText = quizWereWolf[numberScreen].quest
         answer1.innerText = quizWereWolf[numberScreen].q1
@@ -185,8 +185,7 @@ function switchScreen(idQuizSelected, answer){
         answer3.innerText = quizWereWolf[numberScreen].q3
         answer4.innerText = quizWereWolf[numberScreen].q4
         answer5.innerText = quizWereWolf[numberScreen].q5
-        
-    }
+    };
      if(idQuizSelected == 2){
         tittleQuiz.innerText = quizSamurai[numberScreen].quest
         answer1.innerText = quizSamurai[numberScreen].q1
@@ -194,56 +193,64 @@ function switchScreen(idQuizSelected, answer){
         answer3.innerText = quizSamurai[numberScreen].q3
         answer4.innerText = quizSamurai[numberScreen].q4
         answer5.innerText = quizSamurai[numberScreen].q5
-        
-    }
+    };
 }
-
 function verifyResponse(verify, answer){
-    console.log(verify, quizWereWolf[numberScreen])
     if(verify == quizWereWolf[numberScreen].qR){
-        answer.style.background = '#1aff00'
-        answer.style.transition = 'background 0.2s'
-        pointsScore = pointsScore + 10
+        answer.style.background = '#1aff00';
+        answer.style.transition = 'background 0.2s';
+        addPoint()
     }else if(verify == quizSamurai[numberScreen].qR){
-        answer.style.background = '#1aff00'
-        answer.style.transition = 'background 0.2s'
-        pointsScore = pointsScore + 10
+        answer.style.background = '#1aff00';
+        answer.style.transition = 'background 0.2s';
+        addPoint()
     }else{
-        answer.style.background = 'red'
-        answer.style.transition = 'background 0.2s'
+        answer.style.background = 'red';
+        answer.style.transition = 'background 0.2s';
+    };
+};
+//TAKE SCORE POINTS AND PUT IN LOCALSTORAGE
+//AND SHOW IN SCREEN THE SCORE
+let score = localStorage.getItem('points');
+(function showPoints(){
+    score == null ? currentPoints.innerText = `Ponto atual:0`
+    :currentPoints.innerText = `Ponto atual: ${score}`
+}());
+function addPoint(){
+    for(let count = 0; count < 10; count++){
+        score++
     }
-}
+    localStorage.setItem('points', score)
+};
+
 answer1.addEventListener('click', () => {
-    console.log(progress.value)
-    progress.value = progress.value + 20
-    let res = answer1.textContent
-    verifyResponse(res, answer1)
-    setTimeout(switchScreen, 1000, idQuiz,answer1)
+    progress.value = progress.value + 20;
+    let res = answer1.textContent;
+    verifyResponse(res, answer1);
+    setTimeout(switchScreen, 1000, idQuiz,answer1);
 });
 
 answer2.addEventListener('click', () => {
-    progress.value = progress.value + 20
-    let res = answer2.textContent
-    verifyResponse(res,answer2)
-    setTimeout(switchScreen, 1000, idQuiz,answer2)
-
+    progress.value = progress.value + 20;
+    let res = answer2.textContent;
+    verifyResponse(res,answer2);
+    setTimeout(switchScreen, 1000, idQuiz,answer2);
 });
 answer3.addEventListener('click', () => {
-    progress.value = progress.value + 20
-    let res = answer3.textContent
-    verifyResponse(res,answer3)
-    setTimeout(switchScreen, 1000, idQuiz,answer3)
-
+    progress.value = progress.value + 20;
+    let res = answer3.textContent;
+    verifyResponse(res,answer3);
+    setTimeout(switchScreen, 1000, idQuiz,answer3);
 });
 answer4.addEventListener('click', () => {
     progress.value = progress.value + 20
-    let res = answer4.textContent
-    verifyResponse(res,answer4)
-    setTimeout(switchScreen, 1000, idQuiz,answer4)
+    let res = answer4.textContent;
+    verifyResponse(res,answer4);
+    setTimeout(switchScreen, 1000, idQuiz,answer4);
 });
 answer5.addEventListener('click', () => {
-    progress.value = progress.value + 20
-    let res = answer5.textContent
-    verifyResponse(res,answer5)
-    setTimeout(switchScreen, 1000, idQuiz,answer5)
+    progress.value = progress.value + 20;
+    let res = answer5.textContent;
+    verifyResponse(res,answer5);
+    setTimeout(switchScreen, 1000, idQuiz,answer5);
 });
