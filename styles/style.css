@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
 }
+
 :root{
     --font-tittle: 'Poppins', sans-serif;
     --font-description: 'Roboto', sans-serif;
@@ -11,6 +12,7 @@
     --color-tittle: #ec5003;
     --color-description: #232323;
 }
+
 body{
     background-color: rgb(132, 160, 242);
 }
@@ -18,9 +20,11 @@ body{
 body.clearScroll{
     overflow: hidden;
 }
+
 header{
     display:none;
 }
+
 header.show{
     position: fixed;
     display: flex;
@@ -40,6 +44,7 @@ header.show{
     cursor: pointer;
 
 }
+
 .container{
     width: 100%;
     height: 100%;
@@ -55,8 +60,8 @@ header div h1{
     margin-top: 3rem;
     font-family: var(--font-description);
     font-size: 2.7rem;
-
 }
+
 main.behind{
     visibility: hidden;
     opacity: 0;
@@ -69,33 +74,37 @@ h1#tittle{
     color: rgb(245, 245, 245);
     text-shadow: 1px 1px 10px rgba(153, 0, 255, 0.557);
 }
+
 .quiz{
     margin: 20px 0 20px 0;
     width: 18rem;
     height: 25rem;
     background: #f1f1f1;
 }
+
 div.image {
     width: 100%;
     height: 12rem;
 }
+
 div.image img{
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
+
 div.content-text{
     width: 100%;
     height: 10rem;
-
 }
+
 div.content-text h1{
     margin-left: var(--margin-left);
     font-family: var(--font-tittle);
     font-weight: 400;
     color: var(--color-tittle);
-    
 }
+
 div.content-text h2{
     margin-top: 15px;
     margin-left: var(--margin-left);
@@ -104,11 +113,13 @@ div.content-text h2{
     font-weight: 500;
     font-size: 1.3rem;
 }
+
 div.button{
     text-align: center;
     height: 48px;
     margin-top: -0.80rem;
 }
+
 div.button input{
     border: none;
     background: rgb(163, 64, 239);
@@ -127,11 +138,11 @@ div.button input:hover{
     text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.456);
     background-color: rgb(135, 53, 198);
 }
+
 .quiz:hover{
     transition: transform 0.4s;
     transform: scale(1.040);
 }
-
 /*Quiz box------------------------*/
 div.quiz-box{
     display: flex;
@@ -142,6 +153,7 @@ div.quiz-box{
     
     
 }
+
 div#pts{
     display: flex;
     width: 100%;
@@ -150,15 +162,18 @@ div#pts{
     justify-content: center;
 
 }
+
 div#pts p{
     font-family: var(--font-description);
     color: white;
 }
+
 div#pts progress{
     padding: 10px;  
     margin-left: 10px;  
 
 }
+
 div#points{
     height: 30px;
     width: 100%;
@@ -166,6 +181,7 @@ div#points{
     margin-top: 1rem;
     font-family: var(--font-description);
 }
+
 div.quest{
     margin-top: 2rem;
     display: flex;
@@ -180,11 +196,13 @@ div.quest{
     font-weight: 500;
     font-size: 1.3rem;
 }
+
 div.response-box{
     width: 90%;
     height: 100%;
 }
-div.response{
+
+div .response{
     display: flex;
     width: 100%;
     height: 3rem;
@@ -200,28 +218,114 @@ div.response{
     font-weight: 500;
     cursor: pointer;
 }
+
 div.response:hover{
     background-color: #c96ff2;
     
 }
+/*RESULT*/
+div#result{
+    display: none;
+    position: absolute;
+
+    border-radius: 2px;
+
+    width: 400px;
+    height: 200px;
+
+    background-color: var(--color-description);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div#result input {
+    width: 55%;
+    background-color: rgb(132, 0, 255);
+    border: none;
+    border-radius: 30px;
+
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.238);
+    padding: 6px;
+    margin-top: 10px;
+
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    font-family: var(--font-description);
+    font-weight: bold;
+    color: white;
+}
+
+div#result h2{
+    font-family: var(--font-tittle);
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+
+}
+
+div#result p{
+    font-size: 1.4rem;
+    font-family: var(--font-description);
+    color: white;
+}
+
+div#result #comeBack:hover{
+    cursor: pointer;
+    transition: transform 0.3s;
+    transform: scale(1.03);
+}
+/*FOOTER*/
+footer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100px;
+    background: var(--color-description);
+    justify-content: center;
+    align-items: center;
+}
+footer h3{
+    font-family: var(--font-tittle);
+    font-weight: 400;
+    color: white;
+    text-shadow: 1px 1px rgb(135, 53, 198);
+}
+/*SOCIAL*/
+#social a{
+    margin: 0 20px 0 20px;
+}
+
+#social a > img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.119);
+}
+#social a:hover img{
+    transform: scale(1.03);
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.161);
+}
 
 
-@media (min-width: 768px){
+@media (min-width: 767px){
     .container{
         flex-direction: row;
     }
     .quiz{
         margin-left: 1rem;
     }
+    
 }
 
-@media (min-width: 769px){
+@media (min-width: 768px){
     div.quest{
         width: 75%;
     }
     div.response-box{
         width: 75%;
     }
+    
 }
 
 @media (min-width: 1024px){
@@ -233,5 +337,9 @@ div.response:hover{
     }
     header.show > div.container{
         padding-top: 1.4rem;
+    }
+    footer{
+        flex-direction: row;
+        height: 70px;
     }
 }
